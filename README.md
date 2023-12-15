@@ -22,3 +22,12 @@ Remember Recessive and Dominant ? that's exactly the awnser, In fact Recessive s
 
 A single CAN Bit is divided into four parts and those are sync, propagation, phase1 and phase2, each one of those Parts takes a certain amount of "**Time Quanta**", A time Quanta is the smallest time Unit in CAN ecosystem.
 The exact moment when Phase 1 Ends and Phase 2 begins is **The Sampling Point** and where the Bus retrieves the information.
+
+### Filters : 
+
+As already said, CAN messages are broadcasted to all Nodes across the network and here a CAN Filter is used so that every nodes takes the message type it is expecting.
+There are many types of FDCAN Filters.
+
+ * CAN MASK FILTER : This Filter uses two seperate register in order to decide whether message can pass, First One is **IDMask** : It indicates what bit I do care about and what Bits I do not care About.
+Next, and using **IDFilter** Register I check if the Bits **I Care About** are the same as is Incoming data Header.
+Combining these Two Steps, CAN Decides whether Incoming Data is relevant ti this Node ot Not.
