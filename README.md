@@ -31,3 +31,8 @@ There are many types of FDCAN Filters.
  * CAN MASK FILTER : This Filter uses two seperate register in order to decide whether message can pass, First One is **IDMask** : It indicates what bit I do care about and what Bits I do not care About.
 Next, and using **IDFilter** Register I check if the Bits **I Care About** are the same as is Incoming data Header.
 Combining these Two Steps, CAN Decides whether Incoming Data is relevant ti this Node ot Not.
+
+### Message Reception : 
+CAN Introduces a concept of FIFOs, Deciding Where the message will be stored is the filter Job,
+See there is a Struct member in the filter called : **FilterConfig**, this member is responsible for guiding the message in case the filter let it pass.
+When Activation notification for FDCAN we can match FIFOx FOR FDCANx and so whenever we get a new message or out FIFO is Full we hit on the callback function.
