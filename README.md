@@ -36,3 +36,4 @@ Combining these Two Steps, CAN Decides whether Incoming Data is relevant ti this
 CAN Introduces a concept of FIFOs, Deciding Where the message will be stored is the filter Job,
 See there is a Struct member in the filter called : **FilterConfig**, this member is responsible for guiding the message in case the filter let it pass.
 When Activation notification for FDCAN we can match FIFOx FOR FDCANx and so whenever we get a new message or out FIFO is Full we hit on the callback function.
+**CubeMX** Configuration allows us to choose RxFIFO size and so we need to keep an Eye on our **HAL_FDCAN_ActivateNotification** second Param.
